@@ -66,22 +66,23 @@ export default defineComponent({
 
     // 监视active值的变化，设置tabbar高亮，为什么只要这句代码就可以了？？？
     const active = ref(0);
-    //TODO:这里的73行说是缺一个 } ，不知道怎么回事，先看看吧
-    // watch(route, (newVal) => {
-    //   const name: string | symbol = newVal.name;
+    watch(route, (newVal) => {
+      // const name: string | symbol = newVal.name;
+      const name = newVal.name as string
 
-    //   if ((<string>name).includes("Home")) {
-    //     active.value = 0;
-    //   } else if ((<string>name).includes("World")) {
-    //     active.value = 1;
-    //   } else if ((<string>name).includes("News")) {
-    //     active.value = 2;
-    //   } else if ((<string>name).includes("Rumors")) {
-    //     active.value = 3;
-    //   } else {
-    //     active.value = 0;
-    //   }
-    // });
+
+      if (name.includes("Home")) {
+        active.value = 0;
+      } else if (name.includes("World")) {
+        active.value = 1;
+      } else if (name.includes("News")) {
+        active.value = 2;
+      } else if (name.includes("Rumors")) {
+        active.value = 3;
+      } else {
+        active.value = 0;
+      }
+    });
 
     return {
       flag,

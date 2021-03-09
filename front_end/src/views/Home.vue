@@ -81,6 +81,8 @@
 
       <!-- 全国疫情概况 -->
       <div class="data_country">
+        <h3>今日中国疫情</h3>
+        <ChinaDetailTable></ChinaDetailTable>
         <h3>中国疫情地图</h3>
         <ChinaMap></ChinaMap>
         <h3>中国疫情趋势图</h3>
@@ -177,6 +179,7 @@ import { Grid, GridItem, Swipe, SwipeItem } from "vant";
 import ChinaMap from "../components/China/ChinaDataMap.vue";
 import ChinaLine from "../components/China/ChinaDataLine.vue";
 import ChinaTable from "../components/China/ChinaDataTable.vue";
+import ChinaDetailTable from "@/components/China/ChinaDetailTable.vue";
 import axiosGet from "../services/http";
 
 export default defineComponent({
@@ -213,6 +216,7 @@ export default defineComponent({
     ChinaMap,
     ChinaLine,
     ChinaTable,
+    ChinaDetailTable,
   },
 });
 </script>

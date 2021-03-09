@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Toast, Dialog } from "vant";
 
-axios.defaults.baseURL = "http://192.168.1.4:8080";
+axios.defaults.baseURL = "http://192.168.1.2:8080";
 
 axios.defaults.timeout = 10000;
 
