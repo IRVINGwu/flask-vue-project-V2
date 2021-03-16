@@ -71,16 +71,25 @@ export default defineComponent({
       const name = newVal.name as string
 
 
-      if (name.includes("Home")) {
+      if (name.includes("home")) {
         active.value = 0;
-      } else if (name.includes("World")) {
+        console.log(name)
+      } else if (name.includes("world")  || name.includes('World')) {
         active.value = 1;
-      } else if (name.includes("News")) {
+        console.log(name)
+
+      } else if (name.includes("news")  || name.includes('News')) {
         active.value = 2;
-      } else if (name.includes("Rumors")) {
+        console.log(name)
+
+      } else if (name.includes("rumors")) {
         active.value = 3;
+        console.log(name)
+
       } else {
         active.value = 0;
+        console.log(name)
+
       }
     });
 
