@@ -13,7 +13,7 @@
       <h3>疫情追踪<span></span></h3>
       <!--      疫情列表-->
       <ul class="newslist">
-        <li v-for="item in news" :key="item.id">
+        <li v-for="item in result" :key="item.id">
           <div class="news_item">
             <span>{{ item.time }}</span>
             <div class="item_content">
@@ -33,25 +33,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
-import axiosGet from "../services/http";
+import { defineComponent } from "vue";
+import {useURLLoader} from "@/services/urlLoader";
+
+export interface NewsResult{
+  content: string;
+  date?: string;
+  id: number;
+  link: string;
+  source?: string;
+  time: string;
+  title: string;
+}
 
 export default defineComponent({
   name: "News",
   setup() {
-    const news = ref(null);
+    const {result, loading, loaded} = useURLLoader<NewsResult[]>('http://127.0.0.1:8080/api/news')
 
-    const getNews = async () => {
-      await axiosGet("/api/news").then((res) => {
-        news.value = res;
-      });
-    };
-
-    onMounted(() => {
-      getNews();
-    });
     return {
-      news,
+      result,
     };
   },
 });

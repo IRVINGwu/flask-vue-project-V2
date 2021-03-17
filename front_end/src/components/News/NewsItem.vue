@@ -11,6 +11,17 @@
 <script lang="ts">
 import { defineComponent, ref, toRefs, onMounted } from "vue";
 import axiosGet from "../../services/http";
+// import {useURLLoader} from "@/services/urlLoader";
+
+export interface NewsItemResult{
+  content: string;
+  date: string;
+  id: number;
+  link: string;
+  source?: string;
+  time?: string;
+  title?: string;
+}
 
 export default defineComponent({
   name: "newsItem",
@@ -27,8 +38,9 @@ export default defineComponent({
     onMounted(() => {
       getNews();
     });
+
     return {
-      newsItem,
+      newsItem
     };
   },
   props: ["id"],

@@ -45,22 +45,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
-import axiosGet from "../services/http";
+import { defineComponent } from "vue";
+import {useURLLoader} from "@/services/urlLoader";
+
+export interface RumorsResult{
+  content: string;
+  id: number;
+  source: string;
+  title: string;
+  truth: string;
+}
 
 export default defineComponent({
   name: "Rumors",
   setup() {
-    const result = ref(null);
 
-    const getRumors = async () => {
-      await axiosGet("/api/rumors").then((res) => {
-        result.value = res;
-      });
-    };
-    onMounted(() => {
-      getRumors();
-    });
+    const {result, loading, loaded} = useURLLoader<RumorsResult[]>('http://127.0.0.1:8080/api/rumors')
+
     return {
       result,
     };

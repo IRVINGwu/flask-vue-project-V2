@@ -33,7 +33,7 @@ axios.interceptors.response.use(
   }
 );
 
-function axiosGet(url: string, data?: string): any {
+function axiosGet(url: string, data?: string): any{
   return new Promise((resolve, reject) => {
     axios({
       method: "get",
