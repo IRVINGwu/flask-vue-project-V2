@@ -28,3 +28,7 @@
    前端网址为： http://localhost:8999。由于本项目是移动端项目，在桌面端打开时，打开调试窗口的手机窗口查看效果更好。
 
    提示：若想在手机浏览器中浏览项目，需将`vue.config.js`和`src/service/http.ts`文件中的`localhost`地址改为本地的`IPv4`地址。
+
+## 项目文档地址
+
+https://irvingwu.github.io/docs/
